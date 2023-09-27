@@ -21,7 +21,7 @@ class TrainsTableSeeder extends Seeder
     /* dare come argomento Faker $faker */
     public function run(Faker $faker): void
     {
-        for ($i = 0; $i < 25; $i++) {
+        for ($i = 0; $i < 500; $i++) {
             $train = new Train();
             $train->azienda = $faker->name();
             $train->stazione_di_partenza = $faker->name();
@@ -32,7 +32,7 @@ class TrainsTableSeeder extends Seeder
             $train->numero_carrozze = $faker->numberBetween(1, 26);
             $train->in_orario = $faker->boolean();
             $train->cancellato = $faker->boolean();
-            $train->data_di_partenza = $faker->dateTimeInInterval("-3 days", "+3days");
+            $train->data_di_partenza = $faker->dateTimeInInterval("-3 days", "+6days");
 
             /* salvare i dati nel database*/
             $train->save();
